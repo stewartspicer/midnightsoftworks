@@ -36,16 +36,10 @@
     <p>Any <code>.axaml</code> file in that folder appears in the Settings theme
       picker — or skip the folder hunt entirely: the <strong>Import…</strong> button
       next to the theme picker validates a theme file, copies it there for you, and
-      applies it. The file name is the theme name — <code>OceanDeep.axaml</code> shows
-      as "Ocean Deep" (CamelCase is split for display). Naming a file the same as
+      applies it. The file name (minus extension) is the theme's identity — it's what
+      Gudrun remembers as your choice across restarts. Naming a file the same as
       a bundled theme <em>overrides</em> that bundled theme, so you can restyle
       the defaults without losing their slot in the picker.</p>
-    <p>While iterating on a theme, re-importing the same file hot-reloads it —
-      edit, Import, see the change, repeat.</p>
-    <p>Want a picker name the file name can't express? Add an optional
-      <code>DisplayName</code> key anywhere in the file and it's shown verbatim —
-      punctuation, casing, and all:</p>
-    <pre>&lt;x:String x:Key="DisplayName"&gt;McTheme&lt;/x:String&gt;</pre>
     <p>A theme that fails to load never breaks anything: the current theme stays
       applied and the picker shows the parse error so you can fix the file.</p>
 
@@ -61,15 +55,22 @@
       <li><code>&lt;CornerRadius&gt;</code></li>
       <li><code>&lt;x:Double&gt;</code>, <code>&lt;x:String&gt;</code></li>
     </ul>
-    <p><strong>Include every key.</strong> Applying a theme replaces the whole set,
-      so a file with missing keys leaves parts of the UI unstyled. Start from the
-      complete template below and change values, not structure.</p>
+    <p><strong>Every key in the template below is required</strong> — applying a
+      theme replaces the whole set, so a file with missing keys leaves parts of the
+      UI unstyled. Start from the template and change values, not structure. The
+      single exception is <code>DisplayName</code>, which is optional metadata (see
+      the key reference).</p>
 
     <h2>Complete template</h2>
-    <p>This is the built-in Dark theme, key for key — copy it into
+    <p>This is the built-in Dark theme, key for key, plus the optional
+      <code>DisplayName</code> at the top — copy it into
       <code>MyTheme.axaml</code> and make it yours:</p>
     <pre>&lt;ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+    &lt;!-- Optional: shown verbatim in the theme picker. Without it the file
+         name is used, with CamelCase split ("OceanDeep" → "Ocean Deep") --&gt;
+    &lt;x:String x:Key="DisplayName"&gt;My Theme&lt;/x:String&gt;
+
     &lt;!-- Backgrounds --&gt;
     &lt;Color x:Key="ColorBackgroundPrimary"&gt;#1a1a1a&lt;/Color&gt;
     &lt;Color x:Key="ColorBackgroundPanel"&gt;#252525&lt;/Color&gt;
@@ -173,10 +174,23 @@
       <li><code>CornerRadius</code>, <code>BorderWidth</code>, <code>SplitterThickness</code> — what they say on the tin</li>
     </ul>
 
+    <h2 style="font-size:1.05rem; border:none; margin-top:1.2em">Metadata</h2>
+    <ul>
+      <li><code>ThemeVariant</code> — required; <code>"Light"</code> or <code>"Dark"</code>.
+          Aligns the built-in control styles (scrollbars, combo boxes, checkboxes)
+          with your palette's brightness — mismatch it and they'll fight your colors.</li>
+      <li><code>DisplayName</code> — the one <em>optional</em> key: the picker shows it
+          verbatim, punctuation and casing intact, so <code>McTheme.axaml</code> can
+          display as "McTheme" instead of the split "Mc Theme". Omit it and the
+          file name (CamelCase-split) is used. It only affects display — the file
+          name remains the theme's identity.</li>
+    </ul>
+
     <h2>Tips</h2>
     <ul>
-      <li>Theme switches are instant — keep Settings open and edit the file side by side; re-select the theme to reload it.</li>
-      <li>Set <code>ThemeVariant</code> to match your palette's brightness, or scrollbars and checkboxes will fight your colors.</li>
+      <li>Iterating is instant: keep Settings open, edit the file, click
+          <strong>Import…</strong> and re-pick it — importing over the active theme
+          hot-reloads it in place.</li>
       <li>Send us your best themes — we'd love to bundle community favorites: support@midnightsoftworks.com.</li>
     </ul>
   </main>
