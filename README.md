@@ -23,9 +23,13 @@ Change the signer → both tests must change together.
 ## One-time setup (Cloudflare dashboard)
 
 1. **Connect the repo:** dash.cloudflare.com → *Workers & Pages* → *Create* →
-   *Pages* → *Connect to Git* → pick `stewartspicer/midnightsoftworks`.
-   Build settings: **no framework preset, no build command**, build output
-   directory `public`. (With `wrangler.toml` present, Pages reads config from it.)
+   **the *Pages* tab, not Workers** → *Connect to Git* → pick
+   `stewartspicer/midnightsoftworks`. Build settings: **no framework preset,
+   no build command, no deploy command**, build output directory `public`.
+   ⚠ The dashboard's default flow creates a Git-connected *Worker*, which runs
+   `npx wrangler deploy` and fails against this repo ("Missing entry-point").
+   If that happens: delete the project and recreate it from the Pages tab.
+   Pages picks up `functions/` as the API routes automatically.
 2. **Custom domain:** in the Pages project → *Custom domains* → add
    `midnightsoftworks.com` (the zone is already on Cloudflare, so this is a click).
 3. **D1:** `npx wrangler d1 create midnightsoftworks-orders`, paste the returned
