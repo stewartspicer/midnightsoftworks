@@ -42,6 +42,10 @@
       the defaults without losing their slot in the picker.</p>
     <p>While iterating on a theme, re-importing the same file hot-reloads it —
       edit, Import, see the change, repeat.</p>
+    <p>Want a picker name the file name can't express? Add an optional
+      <code>DisplayName</code> key anywhere in the file and it's shown verbatim —
+      punctuation, casing, and all:</p>
+    <pre>&lt;x:String x:Key="DisplayName"&gt;McTheme&lt;/x:String&gt;</pre>
     <p>A theme that fails to load never breaks anything: the current theme stays
       applied and the picker shows the parse error so you can fix the file.</p>
 
