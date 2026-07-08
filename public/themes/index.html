@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Theming Gudrun | Midnight Softworks</title>
+  <meta name="description" content="How to write custom themes for Gudrun: file format, full key reference, and a complete template.">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <span class="brand">Midnight Softworks</span>
+      <nav>
+        <a href="/">Gudrun</a>
+        <a href="/buy/">Buy</a>
+        <a href="/themes/">Themes</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/license/">My license</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>Theming Gudrun</h1>
+    <p>Everything you see in Gudrun — colors, the treemap palette, fonts, paddings,
+      even the treemap's tile geometry — comes from a theme file. Four themes ship
+      built in (Dark, Light, Solarized Dark, Solarized Light), and you can add your
+      own: a theme is a single declarative XML file, no code, applied instantly
+      from Settings with no restart.</p>
+
+    <h2>Where theme files live</h2>
+    <ul>
+      <li>Windows: <code>%APPDATA%\Gudrun\themes\</code></li>
+      <li>Linux: <code>$XDG_CONFIG_HOME/gudrun/themes/</code> (usually <code>~/.config/gudrun/themes/</code>)</li>
+    </ul>
+    <p>Any <code>.axaml</code> file in that folder appears in the Settings theme
+      picker. The file name is the theme name — <code>OceanDeep.axaml</code> shows
+      as "Ocean Deep" (CamelCase is split for display). Naming a file the same as
+      a bundled theme <em>overrides</em> that bundled theme, so you can restyle
+      the defaults without losing their slot in the picker.</p>
+    <p>A theme that fails to load never breaks anything: the current theme stays
+      applied and the picker shows the parse error so you can fix the file.</p>
+
+    <h2>The format</h2>
+    <p>A theme is a <code>&lt;ResourceDictionary&gt;</code> containing typed,
+      keyed values. Exactly these element types are allowed:</p>
+    <ul>
+      <li><code>&lt;Color&gt;</code> — <code>#rrggbb</code> or <code>#aarrggbb</code></li>
+      <li><code>&lt;SolidColorBrush&gt;</code> — a literal color, or a reference to a
+          Color defined in the same file: <code>Color="{StaticResource ColorAccent}"</code></li>
+      <li><code>&lt;FontFamily&gt;</code> — a font name or comma-separated fallback list</li>
+      <li><code>&lt;Thickness&gt;</code> — <code>8</code> (all sides) or <code>10,4</code> (horizontal, vertical)</li>
+      <li><code>&lt;CornerRadius&gt;</code></li>
+      <li><code>&lt;x:Double&gt;</code>, <code>&lt;x:String&gt;</code></li>
+    </ul>
+    <p><strong>Include every key.</strong> Applying a theme replaces the whole set,
+      so a file with missing keys leaves parts of the UI unstyled. Start from the
+      complete template below and change values, not structure.</p>
+
+    <h2>Complete template</h2>
+    <p>This is the built-in Dark theme, key for key — copy it into
+      <code>MyTheme.axaml</code> and make it yours:</p>
+    <pre>&lt;ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"&gt;
+    &lt;!-- Backgrounds --&gt;
+    &lt;Color x:Key="ColorBackgroundPrimary"&gt;#1a1a1a&lt;/Color&gt;
+    &lt;Color x:Key="ColorBackgroundPanel"&gt;#252525&lt;/Color&gt;
+    &lt;Color x:Key="ColorBackgroundToolbar"&gt;#1e1e1e&lt;/Color&gt;
+    &lt;Color x:Key="ColorBackgroundStatus"&gt;#1a1a1a&lt;/Color&gt;
+    &lt;Color x:Key="ColorSplitter"&gt;#181818&lt;/Color&gt;
+
+    &lt;!-- Text --&gt;
+    &lt;Color x:Key="ColorTextPrimary"&gt;#dddddd&lt;/Color&gt;
+    &lt;Color x:Key="ColorTextMuted"&gt;#888888&lt;/Color&gt;
+    &lt;Color x:Key="ColorTextWarning"&gt;#e0a050&lt;/Color&gt;
+
+    &lt;!-- Accents --&gt;
+    &lt;Color x:Key="ColorAccent"&gt;#5a7fa3&lt;/Color&gt;
+    &lt;Color x:Key="ColorBorderSubtle"&gt;#333333&lt;/Color&gt;
+
+    &lt;!-- Brushes (controls bind brushes; reference the colors above) --&gt;
+    &lt;SolidColorBrush x:Key="BrushBackgroundPrimary"  Color="{StaticResource ColorBackgroundPrimary}"/&gt;
+    &lt;SolidColorBrush x:Key="BrushBackgroundPanel"    Color="{StaticResource ColorBackgroundPanel}"/&gt;
+    &lt;SolidColorBrush x:Key="BrushBackgroundToolbar"  Color="{StaticResource ColorBackgroundToolbar}"/&gt;
+    &lt;SolidColorBrush x:Key="BrushBackgroundStatus"   Color="{StaticResource ColorBackgroundStatus}"/&gt;
+    &lt;SolidColorBrush x:Key="BrushSplitter"           Color="{StaticResource ColorSplitter}"/&gt;
+    &lt;SolidColorBrush x:Key="BrushTextPrimary"        Color="{StaticResource ColorTextPrimary}"/&gt;
+    &lt;SolidColorBrush x:Key="BrushTextMuted"          Color="{StaticResource ColorTextMuted}"/&gt;
+    &lt;SolidColorBrush x:Key="BrushTextWarning"        Color="{StaticResource ColorTextWarning}"/&gt;
+    &lt;SolidColorBrush x:Key="BrushAccent"             Color="{StaticResource ColorAccent}"/&gt;
+
+    &lt;!-- Treemap depth bands: tiles cycle through these 8 colors by depth --&gt;
+    &lt;Color x:Key="ColorTreemapPalette00"&gt;#7a3145&lt;/Color&gt;
+    &lt;Color x:Key="ColorTreemapPalette01"&gt;#8f6336&lt;/Color&gt;
+    &lt;Color x:Key="ColorTreemapPalette02"&gt;#4a7a45&lt;/Color&gt;
+    &lt;Color x:Key="ColorTreemapPalette03"&gt;#224a5d&lt;/Color&gt;
+    &lt;Color x:Key="ColorTreemapPalette04"&gt;#54406e&lt;/Color&gt;
+    &lt;Color x:Key="ColorTreemapPalette05"&gt;#6e3839&lt;/Color&gt;
+    &lt;Color x:Key="ColorTreemapPalette06"&gt;#5d5e3a&lt;/Color&gt;
+    &lt;Color x:Key="ColorTreemapPalette07"&gt;#3f3d56&lt;/Color&gt;
+
+    &lt;!-- Treemap borders --&gt;
+    &lt;SolidColorBrush x:Key="BrushTreemapBorder"      Color="#0a0a0a"/&gt;
+    &lt;SolidColorBrush x:Key="BrushTreemapHoverBorder" Color="#3a3540"/&gt;
+
+    &lt;!-- Typography --&gt;
+    &lt;FontFamily x:Key="FontUI"&gt;fonts:Inter#Inter&lt;/FontFamily&gt;
+    &lt;FontFamily x:Key="FontMono"&gt;Cascadia Mono,Consolas,DejaVu Sans Mono,monospace&lt;/FontFamily&gt;
+    &lt;x:Double x:Key="FontSizeSmall"&gt;11&lt;/x:Double&gt;
+    &lt;x:Double x:Key="FontSizeMedium"&gt;14&lt;/x:Double&gt;
+    &lt;x:Double x:Key="FontSizeLarge"&gt;16&lt;/x:Double&gt;
+
+    &lt;!-- Density &amp; layout --&gt;
+    &lt;Thickness x:Key="DensityPadding"&gt;8&lt;/Thickness&gt;
+    &lt;Thickness x:Key="DensityPaddingButton"&gt;10,4&lt;/Thickness&gt;
+    &lt;Thickness x:Key="DensityPaddingButtonSmall"&gt;8,4&lt;/Thickness&gt;
+    &lt;Thickness x:Key="DensityPaddingDialogButton"&gt;14,6&lt;/Thickness&gt;
+    &lt;x:Double x:Key="DensityRowMinHeight"&gt;32&lt;/x:Double&gt;
+    &lt;CornerRadius x:Key="CornerRadius"&gt;4&lt;/CornerRadius&gt;
+    &lt;Thickness x:Key="BorderWidth"&gt;1&lt;/Thickness&gt;
+    &lt;x:Double x:Key="SplitterThickness"&gt;4&lt;/x:Double&gt;
+    &lt;x:Double x:Key="TreemapInnerPadding"&gt;4&lt;/x:Double&gt;
+
+    &lt;!-- "Light" or "Dark": aligns the built-in control styles (scrollbars,
+         combo boxes, checkboxes) with your palette --&gt;
+    &lt;x:String x:Key="ThemeVariant"&gt;Dark&lt;/x:String&gt;
+&lt;/ResourceDictionary&gt;</pre>
+
+    <h2>Key reference</h2>
+
+    <h2 style="font-size:1.05rem; border:none; margin-top:1.2em">Application chrome</h2>
+    <ul>
+      <li><code>ColorBackgroundPrimary</code> — the treemap area's backdrop and main window base</li>
+      <li><code>ColorBackgroundPanel</code> — tree pane, list pane, dialogs</li>
+      <li><code>ColorBackgroundToolbar</code> / <code>ColorBackgroundStatus</code> — top toolbar / bottom status strip</li>
+      <li><code>ColorSplitter</code> — the draggable pane dividers</li>
+      <li><code>ColorTextPrimary</code> / <code>ColorTextMuted</code> / <code>ColorTextWarning</code> — main text, secondary text, the ⚠ issue indicators</li>
+      <li><code>ColorAccent</code> — selection highlights and the treemap's selected-tile outline</li>
+      <li><code>ColorBorderSubtle</code> — low-contrast borders</li>
+      <li>Each <code>Brush*</code> key is what controls actually consume; point it at your color of the same name (or any color — nothing requires them to match).</li>
+    </ul>
+
+    <h2 style="font-size:1.05rem; border:none; margin-top:1.2em">Treemap</h2>
+    <ul>
+      <li><code>ColorTreemapPalette00…07</code> — directory depth bands; depth 8 wraps to band 0. Tile label text auto-contrasts (light text on dark bands, dark on light), so any palette stays readable.</li>
+      <li><code>BrushTreemapBorder</code> / <code>BrushTreemapHoverBorder</code> — tile outlines, normal and hovered</li>
+      <li><code>TreemapInnerPadding</code> — how much of a directory tile's own color shows around its children; bigger = deeper visual nesting</li>
+    </ul>
+
+    <h2 style="font-size:1.05rem; border:none; margin-top:1.2em">Typography</h2>
+    <ul>
+      <li><code>FontUI</code> — everything, including treemap tile labels. Use any installed font name; <code>fonts:Inter#Inter</code> is the copy of Inter bundled inside Gudrun.</li>
+      <li><code>FontMono</code> — paths and file names (tree rows, properties, dialogs). Fallback lists work: <code>Cascadia Mono,Consolas,monospace</code>.</li>
+      <li><code>FontSizeSmall/Medium/Large</code> — treemap labels &amp; hints / body text / dialog titles</li>
+    </ul>
+
+    <h2 style="font-size:1.05rem; border:none; margin-top:1.2em">Density &amp; layout</h2>
+    <ul>
+      <li><code>DensityPadding</code> (panels), <code>DensityPaddingButton</code> (toolbar buttons),
+          <code>DensityPaddingButtonSmall</code> (compact buttons), <code>DensityPaddingDialogButton</code>
+          (dialog buttons), <code>DensityRowMinHeight</code> (tree &amp; list row height)</li>
+      <li>These five are the values Settings → Density scales: your theme's numbers are
+          the "Comfortable" baseline, Compact is 0.6×, Spacious is 1.4×. Everything else
+          in the theme is untouched by the density preset.</li>
+      <li><code>CornerRadius</code>, <code>BorderWidth</code>, <code>SplitterThickness</code> — what they say on the tin</li>
+    </ul>
+
+    <h2>Tips</h2>
+    <ul>
+      <li>Theme switches are instant — keep Settings open and edit the file side by side; re-select the theme to reload it.</li>
+      <li>Set <code>ThemeVariant</code> to match your palette's brightness, or scrollbars and checkboxes will fight your colors.</li>
+      <li>Send us your best themes — we'd love to bundle community favorites: support@midnightsoftworks.com.</li>
+    </ul>
+  </main>
+  <footer class="site">
+    © 2026 Midnight Softworks · <a href="/terms/">License terms &amp; refunds</a> · support@midnightsoftworks.com
+  </footer>
+</body>
+</html>
