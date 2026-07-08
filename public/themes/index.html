@@ -34,10 +34,14 @@
       <li>Linux: <code>$XDG_CONFIG_HOME/gudrun/themes/</code> (usually <code>~/.config/gudrun/themes/</code>)</li>
     </ul>
     <p>Any <code>.axaml</code> file in that folder appears in the Settings theme
-      picker. The file name is the theme name — <code>OceanDeep.axaml</code> shows
+      picker — or skip the folder hunt entirely: the <strong>Import…</strong> button
+      next to the theme picker validates a theme file, copies it there for you, and
+      applies it. The file name is the theme name — <code>OceanDeep.axaml</code> shows
       as "Ocean Deep" (CamelCase is split for display). Naming a file the same as
       a bundled theme <em>overrides</em> that bundled theme, so you can restyle
       the defaults without losing their slot in the picker.</p>
+    <p>While iterating on a theme, re-importing the same file hot-reloads it —
+      edit, Import, see the change, repeat.</p>
     <p>A theme that fails to load never breaks anything: the current theme stays
       applied and the picker shows the parse error so you can fix the file.</p>
 
