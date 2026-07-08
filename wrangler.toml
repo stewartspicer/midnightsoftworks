@@ -1,0 +1,15 @@
+# Cloudflare Pages project configuration.
+# Secrets (set via dashboard or `wrangler pages secret put <NAME>`):
+#   LICENSE_PRIVATE_KEY  - contents of private.b64 (base64 Ed25519 seed). PRODUCTION KEY.
+#   LS_WEBHOOK_SECRET    - Lemon Squeezy webhook signing secret.
+#   RESEND_API_KEY       - optional; without it license emails are skipped and
+#                          buyers use the /thanks download or /license recovery page.
+name = "midnightsoftworks"
+compatibility_date = "2026-07-01"
+pages_build_output_dir = "public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "midnightsoftworks-orders"
+# database_id is filled in after `wrangler d1 create midnightsoftworks-orders`
+database_id = "REPLACE-AFTER-D1-CREATE"

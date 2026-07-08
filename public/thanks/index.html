@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thanks! Get your license | Midnight Softworks</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <span class="brand">Midnight Softworks</span>
+      <nav>
+        <a href="/">Gudrun</a>
+        <a href="/buy/">Buy</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/license/">My license</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>Thank you! 🎉</h1>
+    <p>Your license was generated the moment payment cleared. It's on its way to
+      your inbox — or grab it right here:</p>
+    <div class="card">
+      <form class="lookup" id="lookup">
+        <label>Order number (on your receipt)
+          <input type="text" id="order" autocomplete="off" required>
+        </label>
+        <label>Email you purchased with
+          <input type="email" id="email" autocomplete="email" required>
+        </label>
+        <div><button class="btn" type="submit">Download gudrun.key</button></div>
+        <p class="error" id="error" hidden>No license matched that order + email.
+          Payment processing can take a minute — try again shortly, or email
+          support@midnightsoftworks.com.</p>
+      </form>
+    </div>
+    <h2>Installing the license</h2>
+    <ol>
+      <li>Save <code>gudrun.key</code> to <code>%APPDATA%\Gudrun\</code>
+          (Linux: <code>~/.config/gudrun/</code>) or the folder containing the
+          Gudrun executable, <em>or</em></li>
+      <li>Click <strong>Import</strong> in Gudrun's reminder dialog and pick the file.</li>
+    </ol>
+    <p class="muted">That's it — the reminder is gone forever. Keep the file with
+      your backups; you can also re-download it any time from
+      <a href="/license/">the license page</a>.</p>
+  </main>
+  <footer class="site">
+    © 2026 Midnight Softworks · <a href="/terms/">License terms &amp; refunds</a> · support@midnightsoftworks.com
+  </footer>
+  <script>
+    const params = new URLSearchParams(location.search);
+    // Accept a few plausible parameter names so the LS success-redirect config
+    // can evolve without breaking this page.
+    const prefill = params.get("order") ?? params.get("order_id") ?? params.get("order_number");
+    if (prefill) document.getElementById("order").value = prefill;
+
+    document.getElementById("lookup").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const order = document.getElementById("order").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const err = document.getElementById("error");
+      err.hidden = true;
+      const res = await fetch(`/api/license?order=${encodeURIComponent(order)}&email=${encodeURIComponent(email)}`);
+      if (!res.ok) { err.hidden = false; return; }
+      const blob = await res.blob();
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "gudrun.key";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  </script>
+</body>
+</html>

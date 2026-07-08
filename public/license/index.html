@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retrieve your license | Midnight Softworks</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <span class="brand">Midnight Softworks</span>
+      <nav>
+        <a href="/">Gudrun</a>
+        <a href="/buy/">Buy</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/license/">My license</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>Retrieve your license</h1>
+    <p>Lost your <code>gudrun.key</code>? Enter the order number from your receipt
+      and the email you purchased with, and download a fresh copy — as many times
+      as you like.</p>
+    <div class="card">
+      <form class="lookup" id="lookup">
+        <label>Order number
+          <input type="text" id="order" autocomplete="off" required>
+        </label>
+        <label>Email you purchased with
+          <input type="email" id="email" autocomplete="email" required>
+        </label>
+        <div><button class="btn" type="submit">Download gudrun.key</button></div>
+        <p class="error" id="error" hidden>No license matched that order + email.
+          Check your receipt (from Lemon Squeezy) for the order number, or email
+          support@midnightsoftworks.com and we'll sort it out.</p>
+      </form>
+    </div>
+    <p class="muted">Can't find your receipt? Lemon Squeezy's
+      <a href="https://app.lemonsqueezy.com/my-orders">My Orders</a> page lists
+      every purchase made with your email.</p>
+  </main>
+  <footer class="site">
+    © 2026 Midnight Softworks · <a href="/terms/">License terms &amp; refunds</a> · support@midnightsoftworks.com
+  </footer>
+  <script>
+    document.getElementById("lookup").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const order = document.getElementById("order").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const err = document.getElementById("error");
+      err.hidden = true;
+      const res = await fetch(`/api/license?order=${encodeURIComponent(order)}&email=${encodeURIComponent(email)}`);
+      if (!res.ok) { err.hidden = false; return; }
+      const blob = await res.blob();
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "gudrun.key";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  </script>
+</body>
+</html>
