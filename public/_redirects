@@ -1,7 +1,8 @@
 # Stable download URLs. Pages link to these; each release cut repoints them
 # at the new artifacts in /dl/ (see README "Release downloads").
 # TODO(release): uncomment with the real version once artifacts land in /dl/.
-# /download/windows      /dl/Gudrun-1.0.0-win-x64.zip         302
+# /download/windows      /dl/Gudrun-1.0.0-win-x64-setup.exe   302
+# /download/windows-zip  /dl/Gudrun-1.0.0-win-x64.zip         302
 # /download/linux-x64    /dl/Gudrun-1.0.0-linux-x64.tar.gz    302
 # /download/linux-arm64  /dl/Gudrun-1.0.0-linux-arm64.tar.gz  302
 # /download/checksums    /dl/checksums.txt                    302
