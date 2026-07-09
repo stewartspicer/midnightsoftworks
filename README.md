@@ -59,6 +59,22 @@ create an API key → `RESEND_API_KEY`. Sender is
 `licenses@midnightsoftworks.com`. While you're in DNS: enable Cloudflare Email
 Routing to forward `support@midnightsoftworks.com` to a real inbox.
 
+## Release downloads
+
+Binaries are served straight from Pages — no GitHub Releases. At release cut:
+
+1. Build + package in the Gudrun repo (`build.ps1`), producing
+   `dist/Gudrun-<version>-<rid>.zip|.tar.gz` and `checksums.txt`.
+2. Copy the three artifacts plus `checksums.txt` into `public/dl/`.
+3. Point the stable URLs at them in `public/_redirects`
+   (`/download/windows`, `/download/linux-x64`, `/download/linux-arm64`).
+4. Commit + push. Superseded artifacts can be deleted from `public/dl/` in the
+   same commit — site pages only ever link to the stable `/download/*` URLs.
+
+Limit to know about: Pages serves static files up to **25 MiB each**; current
+packages are ~18 MiB. If an artifact ever outgrows that, move `/dl/` into an
+R2 bucket served by a Pages Function on the same paths — no link changes.
+
 ## Local dev
 
 ```
