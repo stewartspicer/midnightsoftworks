@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" font-family="Segoe UI, system-ui, sans-serif">
+  <!-- Placeholder mock of the Gudrun window. Replace with a real capture:
+       drop hero-treemap.png in this directory and update index.html's src. -->
+  <rect width="1280" height="720" rx="10" fill="#1e1e1e" stroke="#333333"/>
+  <!-- title bar -->
+  <rect x="1" y="1" width="1278" height="42" rx="10" fill="#252525"/>
+  <rect x="1" y="24" width="1278" height="19" fill="#252525"/>
+  <text x="24" y="29" fill="#dddddd" font-size="16">Gudrun — C:\  ·  931 GB scanned</text>
+  <circle cx="1200" cy="22" r="6" fill="#444444"/>
+  <circle cx="1226" cy="22" r="6" fill="#444444"/>
+  <circle cx="1252" cy="22" r="6" fill="#6d3a97"/>
+  <!-- toolbar -->
+  <rect x="1" y="43" width="1278" height="36" fill="#212121"/>
+  <rect x="20" y="51" width="90" height="20" rx="4" fill="#2e2e2e"/>
+  <rect x="120" y="51" width="90" height="20" rx="4" fill="#2e2e2e"/>
+  <rect x="220" y="51" width="140" height="20" rx="4" fill="#2e2e2e"/>
+  <!-- treemap -->
+  <g stroke="#1a1a1a" stroke-width="3">
+    <rect x="16" y="94" width="500" height="380" fill="#5f2c7b"/>
+    <rect x="16" y="474" width="500" height="230" fill="#4a2361"/>
+    <rect x="516" y="94" width="380" height="260" fill="#6d3a97"/>
+    <rect x="516" y="354" width="200" height="180" fill="#52355e"/>
+    <rect x="716" y="354" width="180" height="180" fill="#3d3d3d"/>
+    <rect x="516" y="534" width="380" height="170" fill="#333333"/>
+    <rect x="896" y="94" width="368" height="180" fill="#7b4aa5"/>
+    <rect x="896" y="274" width="220" height="200" fill="#444444"/>
+    <rect x="1116" y="274" width="148" height="200" fill="#5f2c7b"/>
+    <rect x="896" y="474" width="368" height="130" fill="#2f2f2f"/>
+    <rect x="896" y="604" width="180" height="100" fill="#52355e"/>
+    <rect x="1076" y="604" width="188" height="100" fill="#3a3a3a"/>
+  </g>
+  <g fill="#eeeeee" font-size="18">
+    <text x="34" y="126">Videos — 412 GB</text>
+    <text x="34" y="504" fill="#dddddd">Games — 187 GB</text>
+    <text x="534" y="126">Photos — 141 GB</text>
+    <text x="914" y="126">node_modules — 63 GB</text>
+    <text x="914" y="304" fill="#cccccc" font-size="15">AppData — 41 GB</text>
+    <text x="534" y="382" fill="#cccccc" font-size="15">ISOs — 38 GB</text>
+  </g>
+  <text x="1256" y="694" text-anchor="end" fill="#666666" font-size="14">placeholder — real screenshot coming</text>
+</svg>

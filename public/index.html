@@ -38,6 +38,15 @@
         Linux <a href="/download/linux-x64">x64</a> / <a href="/download/linux-arm64">arm64</a></p>
     </div>
 
+    <!-- TODO(media): the images below are placeholder SVG mocks. To swap in real
+         captures, drop the file in public/media/ (hero: PNG ~1280×720; demos:
+         GIF ~640×400) and change the src — keep width/height and alt text. -->
+    <figure class="shot hero-shot">
+      <img src="/media/hero-treemap.svg" width="1280" height="720"
+           alt="The Gudrun window after scanning C: — a treemap where every rectangle is a file, sized by bytes">
+      <figcaption>One scan of C: — every rectangle is a file, sized by bytes.</figcaption>
+    </figure>
+
     <h2>Why Gudrun</h2>
     <div class="card">
       <ul>
@@ -46,6 +55,25 @@
         <li><strong>Honest licensing.</strong> 30-day trial, then a reminder — nothing locks. A $15 license removes the reminder forever. The app never phones home.</li>
         <li><strong>Yours.</strong> Windows and Linux builds. Dark, light, and Solarized themes; density presets; <a href="/themes/">custom theme files</a>.</li>
       </ul>
+    </div>
+
+    <h2>See it in action</h2>
+    <div class="gallery">
+      <figure class="shot">
+        <img src="/media/demo-scan.svg" width="640" height="400" loading="lazy"
+             alt="Animation: the treemap filling in live while a drive scan runs">
+        <figcaption>Point it at a drive — the map fills in live while the scan runs.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/media/demo-zoom.svg" width="640" height="400" loading="lazy"
+             alt="Animation: zooming into the treemap with Ctrl+wheel, small files un-aggregating">
+        <figcaption>Ctrl+wheel to zoom — small files un-aggregate as you go deeper.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/media/demo-delete.svg" width="640" height="400" loading="lazy"
+             alt="Animation: right-clicking a rectangle in the treemap and deleting the file">
+        <figcaption>Found the culprit? Delete it straight from the map.</figcaption>
+      </figure>
     </div>
 
     <h2>How the license works</h2>

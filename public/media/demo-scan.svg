@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="Segoe UI, system-ui, sans-serif">
+  <!-- Placeholder for the live-scan GIF. Replace with demo-scan.gif and update index.html. -->
+  <rect width="640" height="400" rx="8" fill="#1e1e1e" stroke="#333333"/>
+  <g stroke="#1a1a1a" stroke-width="2">
+    <rect x="12" y="12" width="300" height="220" fill="#5f2c7b"/>
+    <rect x="312" y="12" width="180" height="130" fill="#6d3a97"/>
+    <rect x="312" y="142" width="180" height="90" fill="#52355e"/>
+    <rect x="492" y="12" width="136" height="220" fill="#3d3d3d" opacity="0.35"/>
+    <rect x="12" y="232" width="360" height="120" fill="#444444" opacity="0.35"/>
+    <rect x="372" y="232" width="256" height="120" fill="#4a2361" opacity="0.35"/>
+  </g>
+  <rect x="12" y="366" width="616" height="8" rx="4" fill="#2e2e2e"/>
+  <rect x="12" y="366" width="380" height="8" rx="4" fill="#a97fd1"/>
+  <text x="320" y="320" text-anchor="middle" fill="#888888" font-size="16">GIF placeholder — map fills in while the scan runs</text>
+</svg>

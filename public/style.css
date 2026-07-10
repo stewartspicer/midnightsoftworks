@@ -63,6 +63,24 @@ h2 { font-size: 1.25rem; margin-top: 2em; border-bottom: 1px solid var(--border)
 .btn.secondary { background: var(--panel); border-color: var(--border); color: var(--text); }
 .cta-row { display: flex; gap: 14px; justify-content: center; margin: 26px 0; flex-wrap: wrap; }
 
+/* Screenshots and demo gifs */
+figure.shot { margin: 26px 0; }
+figure.shot img {
+  display: block; width: 100%; height: auto;
+  border: 1px solid var(--border); border-radius: 8px;
+  background: #1e1e1e;
+}
+figure.shot figcaption {
+  color: var(--muted); font-size: 0.85rem; text-align: center; margin-top: 8px;
+}
+figure.hero-shot { margin: 34px auto 10px; }
+figure.hero-shot img { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45); }
+.gallery {
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.gallery figure.shot { margin: 0; }
+
 .card {
   background: var(--panel); border: 1px solid var(--border);
   border-radius: 6px; padding: 20px 24px; margin: 18px 0;

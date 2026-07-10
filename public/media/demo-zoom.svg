@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="Segoe UI, system-ui, sans-serif">
+  <!-- Placeholder for the zoom GIF. Replace with demo-zoom.gif and update index.html. -->
+  <rect width="640" height="400" rx="8" fill="#1e1e1e" stroke="#333333"/>
+  <g stroke="#1a1a1a" stroke-width="2" opacity="0.45">
+    <rect x="12" y="12" width="616" height="340" fill="#3a3a3a"/>
+    <rect x="12" y="12" width="300" height="200" fill="#4a2361"/>
+    <rect x="312" y="12" width="200" height="140" fill="#52355e"/>
+  </g>
+  <g stroke="#a97fd1" stroke-width="3" fill="none">
+    <rect x="150" y="80" width="340" height="220" rx="4"/>
+  </g>
+  <g stroke="#1a1a1a" stroke-width="2">
+    <rect x="156" y="86" width="180" height="120" fill="#6d3a97"/>
+    <rect x="336" y="86" width="148" height="80" fill="#5f2c7b"/>
+    <rect x="336" y="166" width="148" height="128" fill="#7b4aa5"/>
+    <rect x="156" y="206" width="180" height="88" fill="#52355e"/>
+  </g>
+  <text x="320" y="380" text-anchor="middle" fill="#888888" font-size="16">GIF placeholder — Ctrl+wheel zoom, small files un-aggregate</text>
+</svg>

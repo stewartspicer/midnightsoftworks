@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" font-family="Segoe UI, system-ui, sans-serif">
+  <!-- Placeholder for the delete-from-map GIF. Replace with demo-delete.gif and update index.html. -->
+  <rect width="640" height="400" rx="8" fill="#1e1e1e" stroke="#333333"/>
+  <g stroke="#1a1a1a" stroke-width="2">
+    <rect x="12" y="12" width="360" height="240" fill="#5f2c7b"/>
+    <rect x="372" y="12" width="256" height="150" fill="#3d3d3d"/>
+    <rect x="372" y="162" width="256" height="90" fill="#52355e"/>
+    <rect x="12" y="252" width="616" height="136" fill="#444444"/>
+  </g>
+  <rect x="12" y="12" width="360" height="240" fill="none" stroke="#a97fd1" stroke-width="3"/>
+  <!-- context menu -->
+  <g>
+    <rect x="250" y="120" width="200" height="128" rx="6" fill="#252525" stroke="#333333"/>
+    <text x="266" y="150" fill="#dddddd" font-size="15">Open folder</text>
+    <text x="266" y="178" fill="#dddddd" font-size="15">Copy path</text>
+    <rect x="256" y="192" width="188" height="30" rx="4" fill="#6d3a97"/>
+    <text x="266" y="213" fill="#ffffff" font-size="15">Delete…</text>
+  </g>
+  <text x="320" y="380" text-anchor="middle" fill="#888888" font-size="16">GIF placeholder — delete straight from the map</text>
+</svg>
