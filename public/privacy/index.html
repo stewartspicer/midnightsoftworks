@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy | Midnight Softworks</title>
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/"><img class="logo" src="/logo.svg" alt="" width="28" height="28">Midnight Softworks</a>
+      <nav>
+        <a href="/">Gudrun</a>
+        <a href="/buy/">Buy</a>
+        <a href="/themes/">Themes</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/license/">My license</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <h1>Privacy</h1>
+    <p class="muted">Effective 2026-07-10. The short version: the app collects
+      nothing; buying a license shares your email with us so we can deliver it.</p>
+
+    <h2>The Gudrun app</h2>
+    <ul>
+      <li><strong>No telemetry, no analytics, no accounts, no network.</strong>
+        Gudrun never contacts a server — not even for license checks, which are
+        fully offline by design.</li>
+      <li>Scanning reads file and directory metadata (names, paths, sizes,
+        timestamps) of the locations <em>you</em> choose, solely to display them
+        to you. That data never leaves your machine.</li>
+      <li>Settings, themes, trial state, and your license file are stored
+        locally (<code>%APPDATA%\Gudrun</code> on Windows,
+        <code>~/.config/gudrun</code> on Linux) and are yours to delete.</li>
+    </ul>
+
+    <h2>Buying from this site</h2>
+    <ul>
+      <li>Checkout is handled by <strong>Lemon Squeezy, LLC</strong> as merchant
+        of record; their <a href="https://www.lemonsqueezy.com/privacy">privacy
+        policy</a> governs the payment itself. We never see your card details.</li>
+      <li>To issue your license we receive and keep your <strong>order number,
+        email address, and the issued license file</strong> in our order ledger.
+        That's used to deliver the license and to re-send it from the
+        <a href="/license/">recovery page</a> — nothing else. We don't sell or
+        share it.</li>
+      <li>License emails are sent through Resend, our email provider.</li>
+      <li>This site sets no cookies and runs no analytics or trackers. It is
+        served by Cloudflare, which processes requests operationally like any
+        host.</li>
+    </ul>
+
+    <h2>Buying from the Microsoft Store</h2>
+    <p>If you get Gudrun from the Microsoft Store, Microsoft processes the
+      purchase and the trial entirely — we receive no personal information
+      at all.</p>
+
+    <h2>Your data</h2>
+    <p>Write to support@midnightsoftworks.com to correct or delete your order
+      record. (Deleting it means the self-service license re-download stops
+      working — keep a backup of your <code>gudrun.key</code> first.)</p>
+  </main>
+  <footer class="site">
+    © 2026 Midnight Softworks · <a href="/terms/">License terms &amp; refunds</a> · <a href="/privacy/">Privacy</a> · support@midnightsoftworks.com
+  </footer>
+</body>
+</html>
