@@ -43,16 +43,16 @@ Design tokens (replace the current `:root` block in `style.css`):
 - Rules/borders: `rgba(169,127,209,.18)` hairlines; media frames
   `rgba(169,127,209,.3)`.
 
-**Starfield:** pure CSS, tiles seamlessly at any viewport width. Ten
-`radial-gradient` dot layers on `body` (or a fixed pseudo-element), each with
-its own `background-size` (mismatched tile dimensions ≈170–470px so no visible
-repetition) and `background-repeat: repeat`; the glow ellipse is an eleventh
-`no-repeat` layer. Dot spec: seven 1px dots at opacity .3–.5 (two of them
-violet-tinted `rgba(200,170,255,…)`), three 1.6px dots at opacity .7–.8. Exact
-values are in the final mockup. Density matches the approved "deep night"
-option; there is NO nebula haze. Stars scroll with the content (full-document
-absolute layer, not a fixed viewport layer); the glow ellipse is pinned to the
-top of the page and sized to the first viewport (`100% 100vh`).
+**Starfield:** pure CSS, tiles seamlessly at any viewport width, no visible
+regularity. One large SVG tile (913×701, inlined as a data URI) containing
+~78 irregularly scattered stars — seeded-random positions with mild
+clustering, mixed sizes (r 0.7 / 0.9 / 1.35) and opacities (.2–.9), ~25%
+violet-tinted `#c8aaff` — repeating over the full document. Regenerate the
+tile with `tools/gen-starfield.js` (seeded LCG, reproducible). Density matches
+the approved "deep night" option; there is NO nebula haze. Stars scroll with
+the content (full-document absolute layer, not a fixed viewport layer); the
+glow ellipse is a second background layer pinned to the top of the page and
+sized to the first viewport (`100% 100vh`, `no-repeat`).
 
 **Typography:**
 
