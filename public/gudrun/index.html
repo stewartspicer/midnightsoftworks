@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gudrun — see what's eating your disk | Midnight Softworks</title>
+  <meta name="description" content="Gudrun is a fast disk-usage analyzer for Windows and Linux. Treemap view, instant scans, free 30-day trial.">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site">
+    <div class="inner">
+      <a class="brand" href="/"><img class="logo" src="/logo.svg" alt="" width="26" height="20">Midnight Softworks</a>
+      <nav>
+        <a href="/gudrun/">Software</a>
+        <a href="/faq/">FAQ</a>
+        <a href="/license/">License</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="page-head">
+      <div class="kind">Disk utility · Windows &amp; Linux</div>
+      <h1>Gudrun <em>— see what's eating your disk</em></h1>
+      <p class="muted" style="max-width:500px">A treemap analyzer that scans a
+        terabyte drive in seconds — the map fills in live, you zoom to the
+        culprit, and delete it without leaving the view.</p>
+    </div>
+
+    <!-- TODO(release): these URLs 404 until artifacts land in /dl/ and _redirects points at them -->
+    <div class="btns">
+      <a class="btn" href="/download/windows">Download for Windows</a>
+      <a class="btn secondary" href="/download/windows-zip">Portable zip</a>
+      <a class="btn secondary" href="/download/linux-x64">Linux x64</a>
+      <a class="btn secondary" href="/download/linux-arm64">Linux arm64</a>
+      <a class="btn secondary" href="/buy/">Buy — $15</a>
+    </div>
+    <p class="fine">Free 30 days · no feature limits · no account · no telemetry</p>
+
+    <hr class="rule">
+
+    <div class="why">
+      <div>
+        <h3>Fast</h3>
+        <p>Parallel scanner tuned for NVMe — big drives map in seconds, and the
+          treemap fills in live while the scan runs.</p>
+      </div>
+      <div>
+        <h3>A real treemap</h3>
+        <p>Zoom with Ctrl+wheel and small files un-aggregate as you go; hover
+          anything for details; delete straight from the map.</p>
+      </div>
+      <div>
+        <h3>Honest licensing</h3>
+        <p>30-day trial, then a reminder — nothing locks. A $15 license removes
+          the reminder forever. The app never phones home.</p>
+      </div>
+      <div>
+        <h3>Yours</h3>
+        <p>Windows and Linux builds. Dark, light, and Solarized themes; density
+          presets; <a href="/themes/">custom theme files</a>.</p>
+      </div>
+    </div>
+
+    <h2>See it in action</h2>
+    <!-- TODO(media): placeholder SVG mocks. Real captures: 640x400 (8:5) GIFs
+         <=4 MB each, or (preferred) MP4/WebM loops via <video autoplay muted
+         loop playsinline> — same slot, keep width/height and alt/captions. -->
+    <div class="gallery">
+      <figure class="shot">
+        <img src="/media/demo-scan.svg" width="640" height="400" loading="lazy"
+             alt="Animation: the treemap filling in live while a drive scan runs">
+        <figcaption>Point it at a drive — the map fills in live.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/media/demo-zoom.svg" width="640" height="400" loading="lazy"
+             alt="Animation: zooming into the treemap with Ctrl+wheel, small files un-aggregating">
+        <figcaption>Ctrl+wheel to zoom — files un-aggregate as you go.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="/media/demo-delete.svg" width="640" height="400" loading="lazy"
+             alt="Animation: right-clicking a rectangle in the treemap and deleting the file">
+        <figcaption>Found the culprit? Delete it from the map.</figcaption>
+      </figure>
+    </div>
+
+    <hr class="rule">
+
+    <h2>How the license works</h2>
+    <p>Buying gets you a small signed file, <code>gudrun.key</code>. Drop it next
+      to the executable (or import it from the reminder dialog) and Gudrun is
+      licensed on that machine forever — fully offline, valid for all 1.x
+      updates. That's the whole system. <a href="/faq/">More in the FAQ.</a></p>
+  </main>
+  <footer class="site">
+    © 2026 Midnight Softworks · <a href="/terms/">License terms &amp; refunds</a> · <a href="/privacy/">Privacy</a> · support@midnightsoftworks.com
+  </footer>
+</body>
+</html>
