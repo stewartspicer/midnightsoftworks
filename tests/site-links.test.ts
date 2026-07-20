@@ -18,7 +18,16 @@ const redirectPrefixes = readFileSync(join(PUBLIC, "_redirects"), "utf8")
   .map((l) => l.trim().split(/\s+/)[0])
   .filter((p) => p && p.startsWith("/"))
   .map((p) => p.replace(/\*.*$/, "")); // "/download/*" -> "/download/"
-const dynamicPrefixes = ["/api/", "/download/", ...redirectPrefixes];
+// Literal download paths that mirror the TODO(release) redirects in public/_redirects.
+// Once those redirects are uncommented, these entries should be removed; the parser will pick them up.
+const downloadPaths = [
+  "/download/windows",
+  "/download/windows-zip",
+  "/download/linux-x64",
+  "/download/linux-arm64",
+  "/download/checksums",
+];
+const dynamicPrefixes = ["/api/", ...downloadPaths, ...redirectPrefixes];
 
 function targetExists(href: string): boolean {
   const path = href.split(/[?#]/)[0];
