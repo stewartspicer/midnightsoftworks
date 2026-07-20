@@ -128,7 +128,8 @@ fields, violet focus border).
 
 - Content column: `max-width: 860px` retained.
 - Nav wraps naturally at narrow widths (few links, small caps) — no hamburger,
-  no JS anywhere on the site.
+  no design/layout JS anywhere on the site. (The existing license-lookup fetch
+  script on `/license/` is functional, not design, and stays.)
 - Button rows and the "Why" row wrap/stack; media frames are `width: 100%`.
 - Test at 360px, 768px, and desktop; no horizontal scroll at any width.
 
