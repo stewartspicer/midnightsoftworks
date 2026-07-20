@@ -3,84 +3,53 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gudrun — see what's eating your disk | Midnight Softworks</title>
-  <meta name="description" content="Gudrun is a fast disk-usage analyzer for Windows and Linux. Treemap view, instant scans, free 30-day trial.">
+  <title>Midnight Softworks — honest software, made after dark</title>
+  <meta name="description" content="A one-person software studio. Fast, focused tools like Gudrun, the disk-usage treemap analyzer. Sold once, owned forever, licensed with a file — not an account.">
   <link rel="icon" type="image/svg+xml" href="/logo.svg">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <header class="site">
     <div class="inner">
-      <a class="brand" href="/"><img class="logo" src="/logo.svg" alt="" width="28" height="28">Midnight Softworks</a>
+      <a class="brand" href="/"><img class="logo" src="/logo.svg" alt="" width="26" height="20">Midnight Softworks</a>
       <nav>
-        <a href="/">Gudrun</a>
-        <a href="/buy/">Buy</a>
-        <a href="/themes/">Themes</a>
+        <a href="/gudrun/">Software</a>
         <a href="/faq/">FAQ</a>
-        <a href="/license/">My license</a>
+        <a href="/license/">License</a>
       </nav>
     </div>
   </header>
   <main>
     <div class="hero">
-      <img class="hero-logo" src="/logo.svg" alt="Midnight Softworks" width="88" height="88">
-      <h1>Gudrun</h1>
-      <p class="tagline">See what's eating your disk. A fast treemap disk-usage
-        analyzer for Windows and Linux — scan a terabyte drive in seconds,
-        zoom into the map, delete what you don't need.</p>
-      <div class="cta-row">
-        <!-- TODO(release): these URLs 404 until artifacts land in /dl/ and _redirects points at them -->
-        <a class="btn" href="/download/windows">Download for Windows</a>
-        <a class="btn secondary" href="/buy/">Buy a license — $15</a>
-      </div>
-      <p class="muted">Free 30-day trial. No feature limits, no account, no telemetry.<br>
-        Also: <a href="/download/windows-zip">portable zip</a> ·
-        Linux <a href="/download/linux-x64">x64</a> / <a href="/download/linux-arm64">arm64</a></p>
+      <div class="overline">A one-person software studio</div>
+      <h1>Honest software, <em>made after dark.</em></h1>
+      <p class="tagline">Fast, focused tools. Sold once, owned forever,
+        licensed with a file — not an account.</p>
     </div>
 
-    <!-- TODO(media): the images below are placeholder SVG mocks. To swap in real
-         captures, drop the file in public/media/ (hero: PNG ~1280×720; demos:
-         GIF ~640×400) and change the src — keep width/height and alt text. -->
+    <hr class="rule">
+
+    <section class="prod">
+      <div class="kind">Disk utility · Windows &amp; Linux</div>
+      <h2><a href="/gudrun/">Gudrun</a></h2>
+      <p class="pitch">See what's eating your disk. A treemap analyzer that
+        scans a terabyte drive in seconds — zoom in, find the culprit, delete
+        it from the map.</p>
+      <div class="btns">
+        <a class="btn" href="/download/windows">Download free trial</a>
+        <a class="btn secondary" href="/buy/">Buy a license — $15</a>
+      </div>
+      <p class="fine">Free 30 days · no feature limits · no account · no telemetry</p>
+    </section>
+
+    <!-- TODO(media): placeholder SVG mock. Real capture: PNG 1920x1080 (16:9),
+         <=500 KB — drop in public/media/ and change src; keep width/height/alt. -->
     <figure class="shot hero-shot">
       <img src="/media/hero-treemap.svg" width="1280" height="720"
            alt="The Gudrun window after scanning C: — a treemap where every rectangle is a file, sized by bytes">
-      <figcaption>One scan of C: — every rectangle is a file, sized by bytes.</figcaption>
+      <figcaption>One scan of C: — every rectangle is a file, sized by bytes.
+        <a href="/gudrun/">More about Gudrun →</a></figcaption>
     </figure>
-
-    <h2>Why Gudrun</h2>
-    <div class="card">
-      <ul>
-        <li><strong>Fast.</strong> Parallel scanner tuned for NVMe — big drives map in seconds, and the treemap fills in live while the scan runs.</li>
-        <li><strong>A real treemap.</strong> Zoom with Ctrl+wheel and small files un-aggregate as you go; hover anything for details; delete straight from the map.</li>
-        <li><strong>Honest licensing.</strong> 30-day trial, then a reminder — nothing locks. A $15 license removes the reminder forever. The app never phones home.</li>
-        <li><strong>Yours.</strong> Windows and Linux builds. Dark, light, and Solarized themes; density presets; <a href="/themes/">custom theme files</a>.</li>
-      </ul>
-    </div>
-
-    <h2>See it in action</h2>
-    <div class="gallery">
-      <figure class="shot">
-        <img src="/media/demo-scan.svg" width="640" height="400" loading="lazy"
-             alt="Animation: the treemap filling in live while a drive scan runs">
-        <figcaption>Point it at a drive — the map fills in live while the scan runs.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="/media/demo-zoom.svg" width="640" height="400" loading="lazy"
-             alt="Animation: zooming into the treemap with Ctrl+wheel, small files un-aggregating">
-        <figcaption>Ctrl+wheel to zoom — small files un-aggregate as you go deeper.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="/media/demo-delete.svg" width="640" height="400" loading="lazy"
-             alt="Animation: right-clicking a rectangle in the treemap and deleting the file">
-        <figcaption>Found the culprit? Delete it straight from the map.</figcaption>
-      </figure>
-    </div>
-
-    <h2>How the license works</h2>
-    <p>Buying gets you a small signed file, <code>gudrun.key</code>. Drop it next to
-      the executable (or import it from the reminder dialog) and Gudrun is licensed
-      on that machine forever — fully offline, valid for all 1.x updates. That's the
-      whole system. <a href="/faq/">More in the FAQ.</a></p>
   </main>
   <footer class="site">
     © 2026 Midnight Softworks · <a href="/terms/">License terms &amp; refunds</a> · <a href="/privacy/">Privacy</a> · support@midnightsoftworks.com
