@@ -50,8 +50,9 @@ repetition) and `background-repeat: repeat`; the glow ellipse is an eleventh
 `no-repeat` layer. Dot spec: seven 1px dots at opacity .3–.5 (two of them
 violet-tinted `rgba(200,170,255,…)`), three 1.6px dots at opacity .7–.8. Exact
 values are in the final mockup. Density matches the approved "deep night"
-option; there is NO nebula haze. Stars must render identically across page
-heights (background attached to a full-height element, not content height).
+option; there is NO nebula haze. Stars scroll with the content (full-document
+absolute layer, not a fixed viewport layer); the glow ellipse is pinned to the
+top of the page and sized to the first viewport (`100% 100vh`).
 
 **Typography:**
 

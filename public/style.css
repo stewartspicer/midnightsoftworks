@@ -23,17 +23,19 @@ html { height: 100%; }
 body {
   margin: 0;
   min-height: 100%;
+  position: relative;
   background-color: var(--bg);
   color: var(--text);
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
   line-height: 1.6;
 }
 body.quiet { --glow: #221639; }
-/* Starfield: fixed full-viewport layer. Ten repeating dot tiles at mismatched
-   sizes (no visible repetition) + one no-repeat glow ellipse. Values from spec. */
+/* Starfield: full-document layer that scrolls with the content. Ten repeating
+   dot tiles at mismatched sizes (no visible repetition) + one glow ellipse
+   pinned to the top of the page, sized to the first viewport. Values from spec. */
 body::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
@@ -53,7 +55,7 @@ body::before {
   background-size:
     190px 170px, 230px 150px, 270px 210px, 210px 230px, 250px 190px,
     170px 250px, 330px 170px, 390px 260px, 430px 300px, 470px 240px,
-    100% 100%;
+    100% 100vh;
   background-repeat:
     repeat, repeat, repeat, repeat, repeat,
     repeat, repeat, repeat, repeat, repeat,
